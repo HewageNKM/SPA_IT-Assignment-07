@@ -3,6 +3,7 @@ function loadAllCustomerId() {
     for (let customerArElement of customerAr) {
         $('#customerIdOrd').append(`<option>${customerArElement.cusId}</option>`);
     }
+    $('#customerIdOrd').append(`<option>Empty</option>`);
 }
 
 function loadAllItemId() {
@@ -10,18 +11,17 @@ function loadAllItemId() {
     for (let itemArElement of itemAr) {
         $('#itemIdOrd').append(`<option>${itemArElement.itemCode}</option>`);
     }
+    $('#itemIdOrd').append(`<option>Empty</option>`);
 }
 
 
 /*Listener fir the Customer Combo*/
-$('#customerIdOrd').on('change',function (){
+$('#customerIdOrd').change(function (event){
     /*get Customer*/
     let customer = searchCustomer($('#customerIdOrd').val());
-
     $('#customerNameOrd').val(customer.cusName);
     $('#salaryOrd').val(customer.cusSalary);
     $('#addressOrd').val(customer.cusAddress);
-
 
 });
 
